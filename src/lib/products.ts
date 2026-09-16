@@ -1,95 +1,50 @@
+import { Fan, Waves, Home, Gauge, type LucideIcon } from "lucide-react";
+
+export type CategorySlug = "centrifuga" | "submersivel" | "periferica" | "alta-pressao";
+
 export type Product = {
-  slug: string;
+  code: string;
   name: string;
-  category: string;
-  description: string;
-  longDescription: string;
-  image?: string;
-  specs: { label: string; value: string }[];
+  slug: string;
+  category: CategorySlug;
+  icon: LucideIcon;
+  image: string;
+  vazao: string;
+  pressao: string;
+  potencia: string;
+  /** valores numéricos para ordenação/filtro futuro */
+  vazaoNum: number;
+  pressaoNum: number;
+  potenciaNum: number;
 };
 
-export const products: Product[] = [
-  {
-    slug: "bomba-centrifuga-imbil",
-    name: "Bomba Centrífuga IMBIL",
-    category: "Centrífugas",
-    description:
-      "Bomba centrífuga industrial em ferro fundido, ideal para irrigação, abastecimento e processos industriais.",
-    longDescription:
-      "Bomba centrífuga robusta da linha IMBIL, com corpo em ferro fundido pintado e flange de sucção frontal. Projetada para operação contínua em sistemas de irrigação, transferência de água e aplicações industriais que exigem alta confiabilidade e durabilidade.",
-    image: "/images/bomba-teste.png",
-    specs: [
-      { label: "Marca", value: "IMBIL" },
-      { label: "Tipo", value: "Centrífuga" },
-      { label: "Material", value: "Ferro fundido" },
-      { label: "Conexão", value: "Flange" },
-    ],
-  },
-  {
-    slug: "bomba-centrifuga-bc-100",    name: "Bomba Centrífuga BC-100",
-    category: "Centrífugas",
-    description:
-      "Bomba centrífuga monofásica de alta vazão, ideal para irrigação e abastecimento.",
-    longDescription:
-      "A BC-100 é uma bomba centrífuga robusta projetada para aplicações de irrigação agrícola, abastecimento de reservatórios e uso industrial leve. Corpo em ferro fundido com rotor em bronze, garantindo durabilidade e eficiência operacional.",
-    specs: [
-      { label: "Vazão máxima", value: "5.000 L/h" },
-      { label: "Pressão máxima", value: "35 mca" },
-      { label: "Potência", value: "1,0 cv" },
-      { label: "Entrada/Saída", value: "1\" / 1\"" },
-    ],
-  },
-  {
-    slug: "bomba-submersivel-bs-200",
-    name: "Bomba Submersível BS-200",
-    category: "Submersíveis",
-    description:
-      "Bomba submersível para poços artesianos com alto desempenho e longa vida útil.",
-    longDescription:
-      "Projetada para operação contínua em poços profundos, a BS-200 oferece excelente relação custo-benefício para uso residencial, comercial e agrícola. Motor resistente a surtos e proteção térmica integrada.",
-    specs: [
-      { label: "Vazão máxima", value: "3.000 L/h" },
-      { label: "Profundidade máxima", value: "80 m" },
-      { label: "Potência", value: "0,75 cv" },
-      { label: "Diâmetro", value: "4\"" },
-    ],
-  },
-  {
-    slug: "bomba-periferica-bp-50",
-    name: "Bomba Periférica BP-50",
-    category: "Periféricas",
-    description:
-      "Bomba periférica compacta para uso doméstico e pequenos sistemas de pressurização.",
-    longDescription:
-      "A BP-50 é a escolha ideal para residências que precisam de pressão constante na rede de água. Silenciosa, compacta e de fácil instalação, atende banheiros, cozinhas e áreas de serviço com eficiência.",
-    specs: [
-      { label: "Vazão máxima", value: "1.800 L/h" },
-      { label: "Pressão máxima", value: "25 mca" },
-      { label: "Potência", value: "0,5 cv" },
-      { label: "Entrada/Saída", value: "3/4\" / 3/4\"" },
-    ],
-  },
-  {
-    slug: "bomba-alta-pressao-bap-300",
-    name: "Bomba Alta Pressão BAP-300",
-    category: "Alta Pressão",
-    description:
-      "Bomba de alta pressão para aplicações industriais e sistemas de lavagem.",
-    longDescription:
-      "A BAP-300 foi desenvolvida para operar sob alta pressão de forma contínua. Indicada para processos industriais, sistemas de combate a incêndio e equipamentos de lavagem de alta pressão.",
-    specs: [
-      { label: "Vazão máxima", value: "2.400 L/h" },
-      { label: "Pressão máxima", value: "60 mca" },
-      { label: "Potência", value: "2,0 cv" },
-      { label: "Entrada/Saída", value: "1\" / 1\"" },
-    ],
-  },
+export const categories: { slug: CategorySlug; label: string; code: string; icon: LucideIcon }[] = [
+  { slug: "centrifuga", label: "Centrífugas", code: "SÉRIE CF", icon: Fan },
+  { slug: "submersivel", label: "Submersíveis", code: "SÉRIE SB", icon: Waves },
+  { slug: "periferica", label: "Periféricas", code: "SÉRIE PF", icon: Home },
+  { slug: "alta-pressao", label: "Alta Pressão", code: "SÉRIE AP", icon: Gauge },
 ];
 
-export function getProductBySlug(slug: string): Product | undefined {
-  return products.find((product) => product.slug === slug);
-}
+const IMG = "/images/products/bomba-teste.png";
 
-export function getProductsByCategory(category: string): Product[] {
-  return products.filter((product) => product.category === category);
-}
+export const products: Product[] = [
+  { code: "CF-2200", name: "Centrífuga industrial", slug: "cf-2200", category: "centrifuga", icon: Fan, image: IMG, vazao: "120 m³/h", pressao: "8 bar", potencia: "15 cv", vazaoNum: 120, pressaoNum: 8, potenciaNum: 15 },
+  { code: "CF-1100", name: "Centrífuga para irrigação", slug: "cf-1100", category: "centrifuga", icon: Fan, image: IMG, vazao: "80 m³/h", pressao: "6 bar", potencia: "7,5 cv", vazaoNum: 80, pressaoNum: 6, potenciaNum: 7.5 },
+  { code: "CF-3000", name: "Centrífuga para abastecimento", slug: "cf-3000", category: "centrifuga", icon: Fan, image: IMG, vazao: "200 m³/h", pressao: "10 bar", potencia: "30 cv", vazaoNum: 200, pressaoNum: 10, potenciaNum: 30 },
+  { code: "CF-0750", name: "Centrífuga monobloco", slug: "cf-0750", category: "centrifuga", icon: Fan, image: IMG, vazao: "45 m³/h", pressao: "5 bar", potencia: "5 cv", vazaoNum: 45, pressaoNum: 5, potenciaNum: 5 },
+
+  { code: "SB-150", name: "Submersível poço profundo", slug: "sb-150", category: "submersivel", icon: Waves, image: IMG, vazao: "18 m³/h", pressao: "6 bar", potencia: "3 cv", vazaoNum: 18, pressaoNum: 6, potenciaNum: 3 },
+  { code: "SB-090", name: "Submersível de drenagem", slug: "sb-090", category: "submersivel", icon: Waves, image: IMG, vazao: "12 m³/h", pressao: "3 bar", potencia: "1 cv", vazaoNum: 12, pressaoNum: 3, potenciaNum: 1 },
+  { code: "SB-220", name: "Submersível artesiano", slug: "sb-220", category: "submersivel", icon: Waves, image: IMG, vazao: "25 m³/h", pressao: "9 bar", potencia: "5 cv", vazaoNum: 25, pressaoNum: 9, potenciaNum: 5 },
+  { code: "SB-320", name: "Submersível para efluentes", slug: "sb-320", category: "submersivel", icon: Waves, image: IMG, vazao: "30 m³/h", pressao: "4 bar", potencia: "7,5 cv", vazaoNum: 30, pressaoNum: 4, potenciaNum: 7.5 },
+
+  { code: "PF-050", name: "Periférica doméstica", slug: "pf-050", category: "periferica", icon: Home, image: IMG, vazao: "3,6 m³/h", pressao: "4 bar", potencia: "0,5 cv", vazaoNum: 3.6, pressaoNum: 4, potenciaNum: 0.5 },
+  { code: "PF-075", name: "Periférica reforçada", slug: "pf-075", category: "periferica", icon: Home, image: IMG, vazao: "5,4 m³/h", pressao: "5 bar", potencia: "0,75 cv", vazaoNum: 5.4, pressaoNum: 5, potenciaNum: 0.75 },
+  { code: "PF-030", name: "Periférica compacta", slug: "pf-030", category: "periferica", icon: Home, image: IMG, vazao: "2,4 m³/h", pressao: "3,5 bar", potencia: "0,33 cv", vazaoNum: 2.4, pressaoNum: 3.5, potenciaNum: 0.33 },
+  { code: "PF-100", name: "Periférica para pressurização", slug: "pf-100", category: "periferica", icon: Home, image: IMG, vazao: "6,6 m³/h", pressao: "5,5 bar", potencia: "1 cv", vazaoNum: 6.6, pressaoNum: 5.5, potenciaNum: 1 },
+
+  { code: "AP-300", name: "Alta pressão industrial", slug: "ap-300", category: "alta-pressao", icon: Gauge, image: IMG, vazao: "45 m³/h", pressao: "12 bar", potencia: "20 cv", vazaoNum: 45, pressaoNum: 12, potenciaNum: 20 },
+  { code: "AP-450", name: "Alta pressão para lavagem", slug: "ap-450", category: "alta-pressao", icon: Gauge, image: IMG, vazao: "30 m³/h", pressao: "15 bar", potencia: "25 cv", vazaoNum: 30, pressaoNum: 15, potenciaNum: 25 },
+  { code: "AP-600", name: "Alta pressão industrial XL", slug: "ap-600", category: "alta-pressao", icon: Gauge, image: IMG, vazao: "60 m³/h", pressao: "18 bar", potencia: "40 cv", vazaoNum: 60, pressaoNum: 18, potenciaNum: 40 },
+  { code: "AP-200", name: "Alta pressão compacta", slug: "ap-200", category: "alta-pressao", icon: Gauge, image: IMG, vazao: "18 m³/h", pressao: "10 bar", potencia: "10 cv", vazaoNum: 18, pressaoNum: 10, potenciaNum: 10 },
+];
