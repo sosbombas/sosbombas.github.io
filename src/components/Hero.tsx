@@ -53,7 +53,7 @@ export default function Hero() {
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="#categorias"
+                href="catalogo"
                 className="inline-flex h-12 items-center justify-center rounded-lg bg-[#E2954A] px-7 text-sm font-semibold text-[#0A3B52] transition-colors hover:bg-[#eda664]"
               >
                 Ver catálogo técnico
