@@ -56,30 +56,30 @@ export default function CatalogPreview() {
   return (
     <section
       id="catalogo"
-      className="relative overflow-hidden bg-[#0F2A4A] py-20 md:py-28"
+      className="relative overflow-hidden bg-[#0A3B52] py-20 md:py-28"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(143,207,234,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(143,207,234,0.05)_1px,transparent_1px)] bg-[size:32px_32px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(95,201,222,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(95,201,222,0.05)_1px,transparent_1px)] bg-[size:32px_32px]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="font-mono text-xs uppercase tracking-[0.15em] text-[#C97C3D]">
+            <span className="font-mono text-xs uppercase tracking-[0.15em] text-[#E2954A]">
               Prévia do catálogo geral
             </span>
-            <h2 className="mt-3 font-[Big_Shoulders_Display,system-ui] text-3xl font-bold uppercase leading-none tracking-tight text-[#F2F5F7] md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-bold uppercase leading-none tracking-tight text-[#EFF7F9] md:text-4xl">
               Páginas do catálogo
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-[#9FB4C7]">
+          <p className="max-w-sm text-sm leading-relaxed text-[#8AB6C4]">
             Uma amostra dos modelos mais procurados. O catálogo completo reúne
             centenas de fichas técnicas por categoria.
           </p>
         </div>
 
         {/* carrossel */}
-        <div className="mt-12 overflow-hidden">
+        <div className="mt-12 overflow-hidden rounded-xl">
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{ transform: `translateX(-${current * 100}%)` }}
@@ -87,7 +87,7 @@ export default function CatalogPreview() {
             {slides.map((slide, slideIndex) => (
               <div
                 key={slideIndex}
-                className="grid w-full flex-shrink-0 grid-cols-1 gap-px bg-[#8FCFEA]/10 sm:grid-cols-2 lg:grid-cols-3"
+                className="grid w-full flex-shrink-0 grid-cols-1 gap-px bg-[#5FC9DE]/10 sm:grid-cols-2 lg:grid-cols-3"
               >
                 {slide.map((product) => {
                   const Icon = product.icon;
@@ -95,10 +95,10 @@ export default function CatalogPreview() {
                     <Link
                       key={product.code}
                       href={`/produto/${product.code.toLowerCase()}`}
-                      className="group flex flex-col bg-[#0F2A4A] transition-colors hover:bg-[#132f54]"
+                      className="group flex flex-col bg-[#0A3B52] transition-colors hover:bg-[#123f58]"
                     >
                       {/* foto do produto */}
-                      <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-[#8FCFEA]/10">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-[#5FC9DE]/10">
                         <Image
                           src={product.image}
                           alt={product.name}
@@ -106,8 +106,8 @@ export default function CatalogPreview() {
                           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                           className="object-cover grayscale contrast-125 transition-all duration-500 group-hover:grayscale-0"
                         />
-                        <div className="absolute inset-0 bg-[#0F2A4A]/40 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-0" />
-                        <span className="absolute left-3 top-3 flex h-8 w-8 items-center justify-center border border-[#8FCFEA]/30 bg-[#0F2A4A]/70 text-[#8FCFEA] backdrop-blur-sm">
+                        <div className="absolute inset-0 bg-[#0A3B52]/40 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-0" />
+                        <span className="absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-lg border border-[#5FC9DE]/30 bg-[#0A3B52]/70 text-[#5FC9DE] backdrop-blur-sm">
                           <Icon strokeWidth={1.5} className="h-4 w-4" />
                         </span>
                       </div>
@@ -115,32 +115,32 @@ export default function CatalogPreview() {
                       {/* conteúdo */}
                       <div className="flex flex-1 flex-col justify-between p-6">
                         <div>
-                          <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#8FCFEA]/70">
+                          <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#5FC9DE]/70">
                             {product.code}
                           </span>
-                          <h3 className="mt-1 text-base font-semibold text-[#F2F5F7]">
+                          <h3 className="mt-1 text-base font-semibold text-[#EFF7F9]">
                             {product.name}
                           </h3>
                         </div>
 
-                        <div className="mt-6 grid grid-cols-3 divide-x divide-[#8FCFEA]/10 border-t border-[#8FCFEA]/10 pt-3">
+                        <div className="mt-6 grid grid-cols-3 divide-x divide-[#5FC9DE]/10 border-t border-[#5FC9DE]/10 pt-3">
                           {[
                             { label: "Vazão", value: product.vazao },
                             { label: "Pressão", value: product.pressao },
                             { label: "Potência", value: product.potencia },
                           ].map((spec) => (
                             <div key={spec.label} className="px-2 first:pl-0 text-center">
-                              <div className="font-mono text-xs font-medium text-[#F2F5F7]">
+                              <div className="font-mono text-xs font-medium text-[#EFF7F9]">
                                 {spec.value}
                               </div>
-                              <div className="mt-0.5 font-mono text-[9px] uppercase tracking-wider text-[#9FB4C7]">
+                              <div className="mt-0.5 font-mono text-[9px] uppercase tracking-wider text-[#8AB6C4]">
                                 {spec.label}
                               </div>
                             </div>
                           ))}
                         </div>
 
-                        <div className="mt-4 flex items-center gap-1 font-mono text-[11px] uppercase tracking-wider text-[#C97C3D] opacity-0 transition-opacity group-hover:opacity-100">
+                        <div className="mt-4 flex items-center gap-1 font-mono text-[11px] uppercase tracking-wider text-[#E2954A] opacity-0 transition-opacity group-hover:opacity-100">
                           Ver ficha técnica
                           <ArrowUpRight className="h-3.5 w-3.5" />
                         </div>
@@ -154,8 +154,8 @@ export default function CatalogPreview() {
         </div>
 
         {/* rodapé: leitura de página + controles */}
-        <div className="mt-8 flex items-center justify-between border-t border-[#8FCFEA]/10 pt-6">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#9FB4C7]">
+        <div className="mt-8 flex items-center justify-between border-t border-[#5FC9DE]/10 pt-6">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#8AB6C4]">
             Pág. {String(current + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
           </span>
 
@@ -166,8 +166,8 @@ export default function CatalogPreview() {
                   key={i}
                   onClick={() => setCurrent(i)}
                   aria-label={`Ir para página ${i + 1}`}
-                  className={`h-1 w-6 transition-colors ${
-                    i === current ? "bg-[#C97C3D]" : "bg-[#8FCFEA]/20"
+                  className={`h-1 w-6 rounded-full transition-colors ${
+                    i === current ? "bg-[#E2954A]" : "bg-[#5FC9DE]/20"
                   }`}
                 />
               ))}
@@ -177,14 +177,14 @@ export default function CatalogPreview() {
               <button
                 onClick={() => setCurrent((prev) => (prev - 1 + slides.length) % slides.length)}
                 aria-label="Página anterior"
-                className="flex h-8 w-8 items-center justify-center border border-[#8FCFEA]/20 text-[#8FCFEA] transition-colors hover:border-[#C97C3D] hover:text-[#C97C3D]"
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#5FC9DE]/20 text-[#5FC9DE] transition-colors hover:border-[#E2954A] hover:text-[#E2954A]"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
               <button
                 onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
                 aria-label="Próxima página"
-                className="flex h-8 w-8 items-center justify-center border border-[#8FCFEA]/20 text-[#8FCFEA] transition-colors hover:border-[#C97C3D] hover:text-[#C97C3D]"
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#5FC9DE]/20 text-[#5FC9DE] transition-colors hover:border-[#E2954A] hover:text-[#E2954A]"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>

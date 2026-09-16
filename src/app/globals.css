@@ -1,6 +1,16 @@
 @import "tailwindcss";
 
 @theme {
+  --color-navy: #0A3B52;
+  --color-navy-muted: #132f54;
+  --color-cyan: #5FC9DE;
+  --color-amber: #d98b3f;
+  --color-amber-dark: #E2954A;
+  --color-paper: #f8fafc;
+  --color-ink: #EFF7F9;
+  --color-muted: #8AB6C4;
+  --color-steel: #4E7A8C;
+
   --color-primary-50: #eff6ff;
   --color-primary-100: #dbeafe;
   --color-primary-200: #bfdbfe;
@@ -12,15 +22,9 @@
   --color-primary-800: #1e3a8a;
   --color-primary-900: #172554;
 
-  --color-accent-400: #22d3ee;
-  --color-accent-500: #06b6d4;
-  --color-accent-600: #0891b2;
-
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-
-  --shadow-soft: 0 4px 24px -4px rgb(29 78 216 / 0.12);
-  --shadow-card: 0 8px 32px -8px rgb(15 23 42 / 0.1);
-  --shadow-elevated: 0 16px 48px -12px rgb(15 23 42 / 0.18);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-big-shoulders), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex), ui-monospace, monospace;
 }
 
 html {
@@ -33,17 +37,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #f8fafc;
 }
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
+/* 
+colors: {
+  navy: "#0A3B52",       // was #0F2A4A
+  cyan: "#5FC9DE",       // was #8FCFEA
+  "amber-dark": "#E2954A", // was #C97C3D / #D98B3F
+  ink: "#EFF7F9",        // was #F2F5F7
+  muted: "#8AB6C4",      // secondary text on dark bg — was #9FB4C7
+  steel: "#4E7A8C",      // secondary text on light bg — was #55677D
+  paper: "#f8fafc",      // unchanged
+}, */
