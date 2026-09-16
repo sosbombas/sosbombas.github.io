@@ -144,7 +144,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <div className="relative aspect-square overflow-hidden rounded-xl border border-cyan/20 bg-white/5">
                 {product.image ? (
                   <Image
-                    src={product.image}
+                    src={product?.image!}
                     alt={product.name}
                     fill
                     className="object-contain p-8"

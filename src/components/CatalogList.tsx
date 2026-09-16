@@ -189,7 +189,7 @@ export default function CatalogList() {
                   >
                     <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-navy/10 bg-white">
                       <Image
-                        src={product.image}
+                        src={product?.image!}
                         alt={product.name}
                         fill
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

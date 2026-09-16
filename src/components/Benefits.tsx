@@ -100,7 +100,7 @@ export default function CatalogPreview() {
                       {/* foto do produto */}
                       <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-[#5FC9DE]/10">
                         <Image
-                          src={product.image}
+                          src={product?.image!}
                           alt={product.name}
                           fill
                           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
