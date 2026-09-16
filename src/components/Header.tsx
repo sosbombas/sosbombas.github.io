@@ -3,7 +3,7 @@ import Logo from "@/components/Logo";
 
 const navLinks = [
   { href: "#categorias", label: "Categorias" },
-  { href: "#catalogo", label: "Catálogo" },
+  { href: "catalogo", label: "Catálogo" },
   { href: "#sobre", label: "Sobre" },
   { href: "#contato", label: "Contato" },
 ];

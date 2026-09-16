@@ -3,7 +3,7 @@ import Logo from "@/components/Logo";
 
 const links = [
   { href: "#categorias", label: "Categorias" },
-  { href: "#catalogo", label: "Catálogo" },
+  { href: "catalogo", label: "Catálogo" },
   { href: "#sobre", label: "Sobre" },
 ];
 
